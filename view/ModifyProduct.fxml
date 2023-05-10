@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="960.0" style="-fx-background-color: #252525; -fx-background-insets: 12; -fx-background-radius: 6; -fx-effect: dropshadow(three-pass-box, derive(black, -20%), 10, 0, 4, 4);" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ModifyProduct">
+   <children>
+      <Label layoutX="25.0" layoutY="40.0" text="Inventory Management System" textFill="WHITE">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font></Label>
+      <ImageView fx:id="exitButton" fitHeight="18.0" fitWidth="18.0" layoutX="925.0" layoutY="15.0" onMousePressed="#exitPressed" onMouseReleased="#exitReleased" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/exit.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="minButton" fitHeight="18.0" fitWidth="18.0" layoutX="905.0" layoutY="15.0" onMousePressed="#minPressed" onMouseReleased="#minReleased" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/min.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="100.0" layoutY="120.0" text="Modify Product" textFill="WHITE">
+         <font>
+            <Font name="Calibri Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="120.0" layoutY="230.0" text="ID" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="120.0" layoutY="280.0" text="Name" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="120.0" layoutY="330.0" text="Inv" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="120.0" layoutY="380.0" text="Price" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="120.0" layoutY="430.0" text="Max" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="270.0" layoutY="430.0" text="Min" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="idField" disable="true" layoutX="200.0" layoutY="231.0" promptText="Auto Gen-Disabled" />
+      <TextField fx:id="name" layoutX="200.0" layoutY="281.0" />
+      <TextField fx:id="inv" layoutX="200.0" layoutY="331.0" prefWidth="60.0" />
+      <TextField fx:id="price" layoutX="200.0" layoutY="381.0" prefWidth="60.0" />
+      <TextField fx:id="max" layoutX="200.0" layoutY="431.0" prefWidth="60.0" />
+      <TextField fx:id="minF" layoutX="320.0" layoutY="431.0" prefWidth="60.0" />
+      <HBox layoutX="740.0" layoutY="630.0" prefHeight="45.0" prefWidth="200.0">
+         <children>
+            <ImageView fx:id="saveB" fitHeight="30.0" fitWidth="60.0" onMousePressed="#savePressed" onMouseReleased="#saveReleased" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+               <image>
+                  <Image url="@../img/save.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cancelB" fitHeight="30.0" fitWidth="60.0" layoutX="15.0" layoutY="15.0" onMousePressed="#cancelPressed" onMouseReleased="#cancelReleased" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/cancel.png" />
+               </image>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <TableView fx:id="partsTable" layoutX="481.0" layoutY="120.0" prefHeight="200.0" prefWidth="385.0" style="-fx-background-color: #202020;">
+        <columns>
+          <TableColumn fx:id="partIdColumn" prefWidth="75.0" text="Part ID" />
+          <TableColumn fx:id="partNameColumn" prefWidth="110.0" text="Part Name" />
+            <TableColumn fx:id="partInvColumn" prefWidth="75.0" text="Inventory" />
+            <TableColumn id="partPriceColumn" fx:id="partPriceColumn" prefWidth="115.0" text="Price/Cost Per Unit" />
+        </columns>
+      </TableView>
+      <TableView fx:id="associatedPartsTable" layoutX="481.0" layoutY="380.0" prefHeight="200.0" prefWidth="385.0" style="-fx-background-color: #202020;">
+         <columns>
+            <TableColumn fx:id="aPartIdColumn" prefWidth="75.0" text="Part ID" />
+            <TableColumn fx:id="aPartNameColumn" prefWidth="110.0" text="Part Name" />
+            <TableColumn fx:id="aPartInvColumn" prefWidth="75.0" text="Inventory" />
+            <TableColumn fx:id="aPartPriceColumn" prefWidth="115.0" text="Price/Cost Per Unit" />
+         </columns>
+      </TableView>
+      <ImageView fx:id="rapB" fitHeight="30.0" fitWidth="200.0" layoutX="700.0" layoutY="585.0" onMousePressed="#rapPressed" onMouseReleased="#rapReleased" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/rap.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="partAddB" fitHeight="30.0" fitWidth="200.0" layoutX="760.0" layoutY="325.0" onMousePressed="#partAddPressed" onMouseReleased="#partAddReleased" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/add.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="partSearch" layoutX="665.0" layoutY="89.0" onAction="#partSearchAction" prefWidth="200.0" promptText="Search by Part ID or Name" />
+      <Label fx:id="partSearchError" layoutX="670.0" layoutY="150.0" prefWidth="200.0" textFill="WHITE">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
